@@ -15,6 +15,10 @@ export default function Home() {
     setInputValue("");
   };
 
+  const checkTodo = (event) => {
+    console.log("checked");
+  };
+
   const deleteTodo = (index) => {
     const newTodos = [...todos];
     newTodos.splice(index, 1);
@@ -24,10 +28,9 @@ export default function Home() {
   };
 
   return (
-    <div>
+    <div className="display">
       <div className="app">
-        <h1 className="title">To-Do List</h1>
-
+        <h1 className="title">TO-DO LIST</h1>
         <form className="form" onSubmit={(e) => handleSubmit(e)}>
           <input
             placeholder="Add your to-do..."
@@ -46,20 +49,30 @@ export default function Home() {
         {todos.map((todo, index) => {
           return (
             <div className="todo-item" key={index + "_todo"}>
-              <p className="label">
-                {index + 1}. {todo}
-              </p>
-              <button
-                className="delete-button"
-                onClick={() => deleteTodo(index)}
-              >
-                <Image
-                  width="20px"
-                  height="20px"
-                  src="/icon/delete.png"
-                  alt="delete"
-                />
-              </button>
+              <div>
+                <p className="label">{todo}</p>
+              </div>
+              <div>
+                <button
+                  className="delete-button"
+                  onClick={() => deleteTodo(index)}
+                >
+                  <Image
+                    width="20px"
+                    height="20px"
+                    src="/icon/delete.png"
+                    alt="delete"
+                  />
+                </button>
+                <button className="delete-button" onClick={() => checkTodo()}>
+                  <Image
+                    width="20px"
+                    height="20px"
+                    src="/icon/checked.png"
+                    alt="check"
+                  />
+                </button>
+              </div>
             </div>
           );
         })}
