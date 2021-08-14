@@ -94,14 +94,14 @@ export default function Home() {
               value={inputValue}
             />
             <button className="primary-button" type="submit">
-              <Image width="20px" height="20px" src="/icon/add.png" alt="add" />
+              <div>add</div>
             </button>
           </form>
         </div>
 
         <div className="display-button">
           <button className="button1" onClick={() => deleteAllTodo()}>
-            Clear All To-Do
+            clear all to-do
           </button>
         </div>
 
