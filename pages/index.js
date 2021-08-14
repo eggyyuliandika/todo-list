@@ -108,7 +108,7 @@ export default function Home() {
         {todos.map((todo, index) => {
           return (
             <div>
-              <div className="todo-item" key={index + "_todo"}>
+              <div className="todo-item">
                 <div
                   style={{
                     display: "grid",
