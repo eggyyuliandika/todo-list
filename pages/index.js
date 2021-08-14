@@ -107,49 +107,47 @@ export default function Home() {
 
         {todos.map((todo, index) => {
           return (
-            <div>
-              <div className="todo-item">
+            <div className="todo-item">
+              <div
+                style={{
+                  display: "grid",
+                  gridTemplateColumns: "20px auto 20px",
+                  alignItems: "center",
+                }}
+              >
                 <div
+                  onClick={() => onToogleCompletion(index)}
+                  className="checked"
+                >
+                  <Image
+                    width="24px"
+                    height="24px"
+                    src="/icon/square.png"
+                    alt="checklist"
+                  />
+                </div>
+                <div
+                  className="label"
                   style={{
-                    display: "grid",
-                    gridTemplateColumns: "20px auto 20px",
-                    alignItems: "center",
+                    padding: "0px 12px",
+                    textDecoration: todo.isDone ? "line-through" : "none",
                   }}
                 >
-                  <div
-                    onClick={() => onToogleCompletion(index)}
-                    className="checked"
-                  >
-                    <Image
-                      width="24px"
-                      height="24px"
-                      src="/icon/square.png"
-                      alt="checklist"
-                    />
-                  </div>
-                  <div
-                    className="label"
-                    style={{
-                      padding: "0px 12px",
-                      textDecoration: todo.isDone ? "line-through" : "none",
-                    }}
-                  >
-                    {todo.task}
-                  </div>
+                  {todo.task}
                 </div>
-                <div>
-                  <button
-                    className="delete-button"
-                    onClick={() => deleteTodo(index)}
-                  >
-                    <Image
-                      width="20px"
-                      height="20px"
-                      src="/icon/delete.png"
-                      alt="delete"
-                    />
-                  </button>
-                </div>
+              </div>
+              <div>
+                <button
+                  className="delete-button"
+                  onClick={() => deleteTodo(index)}
+                >
+                  <Image
+                    width="20px"
+                    height="20px"
+                    src="/icon/delete.png"
+                    alt="delete"
+                  />
+                </button>
               </div>
             </div>
           );
