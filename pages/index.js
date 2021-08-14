@@ -105,51 +105,51 @@ export default function Home() {
           </button>
         </div>
 
-        {/* <p className="desc">Task</p> */}
-
         {todos.map((todo, index) => {
           return (
-            <div className="todo-item" key={index + "_todo"}>
-              <div
-                style={{
-                  display: "grid",
-                  gridTemplateColumns: "20px auto 20px",
-                  alignItems: "center",
-                }}
-              >
+            <div>
+              <div className="todo-item" key={index + "_todo"}>
                 <div
-                  onClick={() => onToogleCompletion(index)}
-                  className="checked"
-                >
-                  <Image
-                    width="24px"
-                    height="24px"
-                    src="/icon/square.png"
-                    alt="checklist"
-                  />
-                </div>
-                <div
-                  className="label"
                   style={{
-                    padding: "0px 12px",
-                    textDecoration: todo.isDone ? "line-through" : "none",
+                    display: "grid",
+                    gridTemplateColumns: "20px auto 20px",
+                    alignItems: "center",
                   }}
                 >
-                  {todo.task}
+                  <div
+                    onClick={() => onToogleCompletion(index)}
+                    className="checked"
+                  >
+                    <Image
+                      width="24px"
+                      height="24px"
+                      src="/icon/square.png"
+                      alt="checklist"
+                    />
+                  </div>
+                  <div
+                    className="label"
+                    style={{
+                      padding: "0px 12px",
+                      textDecoration: todo.isDone ? "line-through" : "none",
+                    }}
+                  >
+                    {todo.task}
+                  </div>
                 </div>
-              </div>
-              <div>
-                <button
-                  className="delete-button"
-                  onClick={() => deleteTodo(index)}
-                >
-                  <Image
-                    width="20px"
-                    height="20px"
-                    src="/icon/delete.png"
-                    alt="delete"
-                  />
-                </button>
+                <div>
+                  <button
+                    className="delete-button"
+                    onClick={() => deleteTodo(index)}
+                  >
+                    <Image
+                      width="20px"
+                      height="20px"
+                      src="/icon/delete.png"
+                      alt="delete"
+                    />
+                  </button>
+                </div>
               </div>
             </div>
           );
